@@ -1,0 +1,5 @@
+stages:
+  preprocessing:
+    cmd: python marimo_example.py
+  postprocessing:
+    cmd: python marimo_example.py

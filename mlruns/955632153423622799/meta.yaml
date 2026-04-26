@@ -1,0 +1,8 @@
+artifact_location: file:d:/mipt/MLOps/HW 5/mlruns/955632153423622799
+creation_time: 1777229016403
+experiment_id: '955632153423622799'
+last_update_time: 1777229016403
+lifecycle_stage: active
+name: KPI tracing
+trace_location: null
+workspace: default

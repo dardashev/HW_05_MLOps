@@ -1,0 +1,10 @@
+artifact_location: file:d:/mipt/MLOps/HW 5/mlruns/955632153423622799/models/m-7bd53b41f01d4687b86ae5c9f3f7791e/artifacts
+creation_timestamp: 1777229192379
+experiment_id: '955632153423622799'
+last_updated_timestamp: 1777229195141
+model_id: m-7bd53b41f01d4687b86ae5c9f3f7791e
+model_type: null
+name: model
+source_run_id: a18bb9febb8f4951ab50f803b65ce679
+status: 2
+status_message: null

@@ -1,0 +1,10 @@
+dvc
+mlflow
+scikit-learn
+pandas
+feast
+yamllint
+diagrams
+opencv-python
+numpy
+matplotlib

@@ -1,0 +1,10 @@
+project: Iris
+project_description: >
+  # Проект: Iris_repo
+provider: local
+registry:
+    registry_type: sql
+    path: sqlite:///data/registry.db
+offline_store:
+    type: file
+entity_key_serialization_version: 3

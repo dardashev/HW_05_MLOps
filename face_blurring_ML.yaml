@@ -1,0 +1,55 @@
+
+services:
+  video-ingestion:
+    container_name: video-ingestion
+    depends_on:
+      - face-blurring
+    labels:
+      "docker_compose_diagram.cluster": "реальное время"
+      "docker_compose_diagram.icon": "diagrams.onprem.compute.Server"
+      "docker_compose_diagram.description": "приём видео и разбиение на кадры"
+
+  face-blurring:
+    container_name: face-blurring
+    depends_on:
+      - model-registry
+      - s3
+    labels:
+      "docker_compose_diagram.cluster": "реальное время"
+      "docker_compose_diagram.icon": "diagrams.onprem.compute.Server"
+      "docker_compose_diagram.description": "детекция лиц и размытие"
+
+  telegram-notifier:
+    container_name: telegram-notifier
+    depends_on:
+      - face-blurring
+    labels:
+      "docker_compose_diagram.cluster": "оповещение"
+      "docker_compose_diagram.icon": "diagrams.onprem.compute.Server"
+      "docker_compose_diagram.description": "уведомление о завершении обработки"
+
+  s3:
+    container_name: s3
+    labels:
+      "docker_compose_diagram.cluster": "хранение"
+      "docker_compose_diagram.icon": "diagrams.onprem.compute.Server"
+      "docker_compose_diagram.description": "хранилище видео"
+
+  mltrain:
+    container_name: mltrain
+    depends_on:
+      - s3
+      - model-registry
+    labels:
+      "docker_compose_diagram.cluster": "обучение"
+      "docker_compose_diagram.icon": "diagrams.onprem.compute.Server"
+      "docker_compose_diagram.description": "дообучение модели"
+
+  model-registry:
+    container_name: model-registry
+    depends_on:
+      - s3
+    labels:
+      "docker_compose_diagram.cluster": "обучение"
+      "docker_compose_diagram.icon": "diagrams.onprem.compute.Server"
+      "docker_compose_diagram.description": "реестр моделей"
